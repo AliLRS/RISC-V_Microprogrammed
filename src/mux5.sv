@@ -1,6 +1,6 @@
 module mux5 #(parameter WIDTH = 4)(
-				input logic [WIDTH-1:0] a0, a1, a2, a3, a4,
-				input logic [2:0] sel,
+				input  logic [WIDTH-1:0] a0, a1, a2, a3, a4,
+				input  logic [2:0] sel,
 				output logic [WIDTH-1:0] result);
 				
 	assign result = (sel == 3'b000) ? a0 :
