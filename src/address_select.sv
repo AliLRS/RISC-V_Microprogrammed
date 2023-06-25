@@ -1,9 +1,28 @@
 module address_select(
                 input  logic [6:0] op,
-                output logic [3:0] addr);
+                input              clk,
+                input  logic [2:0] addrCtl,
+                input  logic [3:0] currAddr,
+                output logic [3:0] nextAddr);
         
-
-
+    logic [3:0] w0, w1, w2, w3, w4;
+    
+    assign w0 = currAddr + 1;
+    dispatch_ROM1 dispatchROM1(op, w1);
+    dispatch_ROM2 dispatchROM2(op, w2);
+    assign w3 = 4'b0000;
+    assign w4 = 4'b0111;
+    
+    always_ff @(posedge clk) begin
+        case(addrCtl)
+            3'b000:  nextAddr = w0;
+            3'b001:  nextAddr = w1;
+            3'b010:  nextAddr = w2;
+            3'b011:  nextAddr = w3;
+            3'b100:  nextAddr = w4;
+            default: nextAddr = 4'b0000;
+        endcase
+    end
 endmodule
 
 module dispatch_ROM1(
