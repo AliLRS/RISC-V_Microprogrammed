@@ -13,21 +13,7 @@ module address_select(
     assign w4 = 4'b0111;
     
     mux5 mux5_1(w0, w1, w2, w3, w4, addrCtl, nextAddr);
-    // always_ff @(posedge clk, posedge rst) begin
-    //     if(rst) begin
-    //         nextAddr = w3;
-    //     end
-    //     else begin
-    //         case(addrCtl)
-    //             3'b000:  nextAddr = w0;
-    //             3'b001:  nextAddr = w1;
-    //             3'b010:  nextAddr = w2;
-    //             3'b011:  nextAddr = w3;
-    //             3'b100:  nextAddr = w4;
-    //             default: nextAddr = 4'bxxxx;
-    //     endcase
-    //     end
-    // end
+
 endmodule
 
 module dispatch_ROM1(
