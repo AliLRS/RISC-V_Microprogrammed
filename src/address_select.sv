@@ -1,6 +1,6 @@
 module address_select(
-                input  logic [6:0] op,
                 input              clk,
+                input  logic [6:0] op,
                 input  logic [2:0] addrCtl,
                 input  logic [3:0] currAddr,
                 output logic [3:0] nextAddr);
