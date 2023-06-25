@@ -1,4 +1,4 @@
-module mux3 #(parameter WIDTH = 4)(
+module mux4 #(parameter WIDTH = 4)(
 				input logic [WIDTH-1:0] a0, a1, a2, a3,
 				input logic [1:0] sel,
 				output logic [WIDTH-1:0] result);
