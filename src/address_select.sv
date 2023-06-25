@@ -21,5 +21,16 @@ module dispatch_ROM1(
             default:    value = 4'b0000;
         endcase
     end
+endmodule
 
+module dispatch_ROM2(
+                input logic [6:0] op,
+                output logic [3:0] value);
+
+    always_comb begin
+        case(op)
+            7'b0000011: value = 4'b0011;     // lw
+            7'b0100011: value = 4'b0101;     // sw
+        endcase
+    end
 endmodule
