@@ -20,7 +20,7 @@ module address_select(
             3'b010:  nextAddr = w2;
             3'b011:  nextAddr = w3;
             3'b100:  nextAddr = w4;
-            default: nextAddr = 4'b0000;
+            default: nextAddr = 4'bxxxx;
         endcase
     end
 endmodule
@@ -37,7 +37,7 @@ module dispatch_ROM1(
             7'b1100011: value = 4'b1010;     // B-Type
             7'b0000011: value = 4'b0010;     // lw
             7'b0100011: value = 4'b0010;     // sw
-            default:    value = 4'b0000;
+            default:    value = 4'bxxxx;
         endcase
     end
 endmodule
@@ -50,6 +50,7 @@ module dispatch_ROM2(
         case(op)
             7'b0000011: value = 4'b0011;     // lw
             7'b0100011: value = 4'b0101;     // sw
+            default:    value = 4'bxxxx;
         endcase
     end
 endmodule
