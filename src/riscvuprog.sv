@@ -8,7 +8,7 @@ module riscvuprog(
             input  logic        clk, reset,
             input  logic [31:0] ReadData
             output logic        MemWrite,
-            output logic [31:0] Adr, WriteData,);
+            output logic [31:0] Adr, WriteData);
 
     logic [1:0] ResultSrc;
 	logic [2:0] ALUControl;
