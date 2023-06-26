@@ -1,4 +1,4 @@
-module flopr #(parameter WIDTH = 32) (
+module flopr #(parameter WIDTH = 32)(
 					input  logic             clk,
 					input  logic             rst,
 					input  logic [WIDTH-1:0] d,
