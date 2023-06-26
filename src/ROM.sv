@@ -2,7 +2,7 @@ module ROM(
         input   logic [3:0]  addr,
         output  logic [16:0] out);
 
-    logic [15:0] ROM[10:0];
+    logic [16:0] ROM[10:0];
 
     assign ROM[0]  = 17'b0_1_0_0_1_0_10_00_10_00_000;      // Fetch    - S0
     assign ROM[1]  = 17'b0_0_0_0_0_0_00_01_01_00_001;      // Decode   - S1
