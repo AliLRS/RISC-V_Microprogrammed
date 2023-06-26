@@ -35,7 +35,7 @@ module datapath(
 	extend extendUnit(Instr[31:7], ImmSrc, ImmExt);
 
 	mux3#(32) muxSrcA(PC, OldPC, A, ALUSrcA, SrcA);
-	mux3#(32) muxSrcB(WriteData, ImmExt, 3'b100, ALUSrcB, SrcB);
+	mux3#(32) muxSrcB(WriteData, ImmExt, 32'd4, ALUSrcB, SrcB);
 
 	alu#(32) ALU(SrcA, SrcB, ALUControl, ALUResult, zero);
 	flopr#(32) aluReg(clk, rst, ALUResult, ALUOut);
