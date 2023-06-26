@@ -6,7 +6,7 @@
 
 module riscvuprog(
             input  logic        clk, reset,
-            input  logic [31:0] ReadData
+            input  logic [31:0] ReadData,
             output logic        MemWrite,
             output logic [31:0] Adr, WriteData);
 
