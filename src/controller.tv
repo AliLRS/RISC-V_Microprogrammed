@@ -1,0 +1,104 @@
+// controller.tv
+
+// Place in same computer directory as controller.sv to test your multicycle controller.
+// Checks all supported instructions (add,sub,and,or,slt,lw,addi,sw,beq,jal).
+
+
+// ========== Test Vector Format ==========
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+
+
+// ========== Test R-type instructions (add,sub,or,and,slt) ==========
+// Each instruction takes four cycles to execute
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+//
+// add
+0110011_000_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 000)
+0110011_000_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 001)
+0110011_000_0_0__XX_10_00_XX_X_000_0_0_0_0 // ExecuteR (Vect 002)
+0110011_000_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 003)
+//
+// sub
+0110011_000_1_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 004)
+0110011_000_1_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 005)
+0110011_000_1_0__XX_10_00_XX_X_001_0_0_0_0 // ExecuteR (Vect 006)
+0110011_000_1_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 007)
+//
+// or
+0110011_110_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 008)
+0110011_110_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 009)
+0110011_110_0_0__XX_10_00_XX_X_011_0_0_0_0 // ExecuteR (Vect 010)
+0110011_110_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 011)
+//
+// and
+0110011_111_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 012)
+0110011_111_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 013)
+0110011_111_0_0__XX_10_00_XX_X_010_0_0_0_0 // ExecuteR (Vect 014)
+0110011_111_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 015)
+//
+// slt
+0110011_010_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 016)
+0110011_010_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 017)
+0110011_010_0_0__XX_10_00_XX_X_101_0_0_0_0 // ExecuteR (Vect 018)
+0110011_010_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 019)
+
+
+// ========== Test I-type instructions (lw, addi) ==========
+// lw takes five cycles to execute, addi takes four cycles
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+//
+// lw
+0000011_010_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 020)
+0000011_010_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 021)
+0000011_010_0_0__00_10_01_XX_X_000_0_0_0_0 // MemAdr   (Vect 022)
+0000011_010_0_0__XX_XX_XX_00_1_XXX_0_0_0_0 // MemRead  (Vect 023)
+0000011_010_0_0__XX_XX_XX_01_X_XXX_0_0_1_0 // MemWB    (Vect 024)
+//
+// addi
+0010011_000_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 025)
+0010011_000_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 026)
+0010011_000_0_0__00_10_01_XX_X_000_0_0_0_0 // ExecuteI (Vect 027)
+0010011_000_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 028)
+//
+// addi (funct7b5 is now just data and shouldn't affect execution)
+0010011_000_1_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 029)
+0010011_000_1_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 030)
+0010011_000_1_0__00_10_01_XX_X_000_0_0_0_0 // ExecuteI (Vect 031)
+0010011_000_1_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 032)
+
+
+// ========== Test S-type instructions (sw) ==========
+// sw takes four cycles to execute
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+//
+// sw
+0100011_010_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 033)
+0100011_010_0_0__XX_XX_XX_XX_X_XXX_0_0_0_0 // Decode   (Vect 034)
+0100011_010_0_0__01_10_01_XX_X_000_0_0_0_0 // MemAdr   (Vect 035)
+0100011_010_0_0__XX_XX_XX_00_1_XXX_0_0_0_1 // MemWrite (Vect 036)
+
+
+// ========== Test B-type instructions (beq) ==========
+// beq takes three cycles to execute
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+//
+// beq (branch not taken because ALU returns Zero=0 indicating inequality)
+1100011_000_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 037)
+1100011_000_0_0__10_01_01_XX_X_000_0_0_0_0 // Decode   (Vect 038)
+1100011_000_0_0__XX_10_00_00_X_001_0_0_0_0 // BEQ      (Vect 039)
+//
+// beq (branch taken because ALU returns Zero=1 indicating equality)
+1100011_000_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 040)
+1100011_000_0_0__10_01_01_XX_X_000_0_0_0_0 // Decode   (Vect 041)
+1100011_000_0_1__XX_10_00_00_X_001_0_1_0_0 // BEQ      (Vect 042)
+
+
+// ========== Test J-type instructions (jal) ==========
+// jal takes four cycles to execute
+// Op[6:0] Funct3[2:0] Funct7b5 Zero _ ImmSrc[1:0] ALUSrcA[1:0] ALUSrcB[1:0] ResultSrc[1:0] AdrSrc ALUControl[2:0] IRWrite PCWrite RegWrite MemWrite
+//
+// jal
+1101111_000_0_0__XX_00_10_10_0_000_1_1_0_0 // Fetch    (Vect 043)
+1101111_000_0_0__11_01_01_XX_X_000_0_0_0_0 // Decode   (Vect 044)
+1101111_000_0_0__XX_01_10_00_X_000_0_1_0_0 // JAL      (Vect 045)
+1101111_000_0_0__XX_XX_XX_00_X_XXX_0_0_1_0 // ALUWB    (Vect 046)
