@@ -1,3 +1,10 @@
+///////////////////////////////////////////////////////////////
+// mem
+//
+// Single-ported RAM with read and write ports
+// Initialized with machine language program
+///////////////////////////////////////////////////////////////
+
 module mem(
         input  logic        clk, 
         input  logic        we,
