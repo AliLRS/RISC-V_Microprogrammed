@@ -26,3 +26,8 @@
 <h2 id="description">Description</h2>
 <p>The processor consists of three main units:</p>
 <img src="imgs/multicycle.png" alt="top module img">
+
+<!-- MEMORY DESCRIPTION -->
+<h3>Memory:</h3>
+<p>The memory unit is responsible for storing both instructions and data.</p>
+
