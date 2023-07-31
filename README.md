@@ -28,6 +28,6 @@
 <img src="imgs/multicycle.png" alt="top module img">
 
 <!-- MEMORY DESCRIPTION -->
-<h3>Memory:</h3>
+<h3 style="color:#ACFADF;">Memory:</h3>
 <p>The memory unit is responsible for storing both instructions and data.</p>
 
