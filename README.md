@@ -11,7 +11,7 @@
 
 <!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project">About The Project</h2>
-<p>This project focuses on designing and implementing a multi-cycle RISC-V processor using microprogrammed control that can execute these instructions:</p>
+<p align="justify">This project focuses on designing and implementing a multi-cycle RISC-V processor using microprogrammed control that can execute these instructions:</p>
 <ul>
   <li><b>R-type instructions</li>
   <li><b>I-type instructions</li>
@@ -25,8 +25,9 @@
 <!-- DESCRIPTION -->
 <h2 id="description">Description</h2>
 <p>The processor consists of three main units:</p>
+<p align="center">
 <img src="imgs/multicycle.png" alt="top module img">
-
+</p>
 <!-- MEMORY DESCRIPTION -->
 <h3>Memory:</h3>
 <p>The memory unit is responsible for storing both instructions and data.</p>
@@ -40,5 +41,5 @@
 
 <!-- CONTROLLER DESCRIPTION -->
 <h3>Controller:</h3>
-<p>The controller results in the instructions to be implemented by constructing a definite collection of signals at each system clock cycle. Each of these output signals generates one micro-operation including register transfer. Thus, the sets of control signals are generated definite micro-operations that can be saved in the internal memory.</p>
-<p>Each bit that forms the microinstruction is linked to one control signal. When the bit is set, the control signal is active. When it is cleared the control signal turns inactive. These microinstructions in a sequence can be saved in the internal ’control’ memory:</p>
+<p align="justify">The controller results in the instructions to be implemented by constructing a definite collection of signals at each system clock cycle. Each of these output signals generates one micro-operation including register transfer. Thus, the sets of control signals are generated definite micro-operations that can be saved in the internal memory.</p>
+<p align="justify">Each bit that forms the microinstruction is linked to one control signal. When the bit is set, the control signal is active. When it is cleared the control signal turns inactive. These microinstructions in a sequence can be saved in the internal ’control’ memory:</p>
