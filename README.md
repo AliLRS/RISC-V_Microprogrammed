@@ -34,4 +34,6 @@
 <!-- DATA PATH DESCRIPTION -->
 <p>Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
 <p></p>
-<p>Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step.</p>
+<p>Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
+<!-- <img src=""> -->
+<p>Each functional unit can be used more than once in an instruction, as long as it is used in different clock cycles.</p>
