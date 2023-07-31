@@ -9,7 +9,7 @@
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10" >
 
-<!-- about the project -->
+<!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project">About The Project</h2>
 <p>This project focuses on designing and implementing a multi-cycle RISC-V processor using microprogrammed control that can execute these instructions:</p>
 <ul>
@@ -21,3 +21,8 @@
   <li><b>jal</li>
 </ul>
 <p>The synthesis stages assume the execution of the design on the DE1-SoC board.</p>
+
+<!-- DESCRIPTION -->
+<h2 id="description">Description</h2>
+<p>The processor consists of three main units:</p>
+<img src="imgs/multicycle.png" alt="top module img">
