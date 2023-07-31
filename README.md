@@ -18,5 +18,4 @@
   <li><b>beq</li>
   <li><b>jal</li>
 </ul>
-<i class="fa-regular fa-circle-dot" style="color: #fbff14;"></i>
 <p>The synthesis stages assume the execution of the design on the DE1-SoC board.</p>
