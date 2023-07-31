@@ -6,7 +6,9 @@
   <li><a href="#about-the-project">About The Project</a></li>
   <li><a href="#description">Description</a></li>
 </ol>
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10">
+
 <!-- about the project -->
 <h2 id="about-the-project">About The Project</h2>
 <p>This project focuses on designing and implementing a multi-cycle RISC-V processor using microprogrammed control that can execute these instructions:</p>
