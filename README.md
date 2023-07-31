@@ -6,8 +6,9 @@
   <li><a href="#about-the-project">About The Project</a></li>
   <li><a href="#description">Description</a></li>
 </ol>
-
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10">
+<center>
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" width="600" height="10" >
+</center>
 
 <!-- about the project -->
 <h2 id="about-the-project">About The Project</h2>
