@@ -80,5 +80,5 @@
 
 <p align="justify">A small Instruction Decoder combinationally produces the ImmSrc select signal based on the opcode using the table below:</p>
 <p align="center">
-  <img src="imgs/controlImmSrc_table.png" alt="ImmSrc table img" width="589px" heigth="221px">
+  <img src="imgs/controlImmSrc_table.png" alt="ImmSrc table img" width="369px" heigth="151px">
 </p>
