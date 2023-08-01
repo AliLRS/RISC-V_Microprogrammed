@@ -1,7 +1,8 @@
+<h3>     </h3>
 <h1 align="center"> multi-cycle RISC-V microprogrammed processor </h1>
 <h3 align="center"> Computer Architecture </h3>
 <h5 align="center"> Final Project - <a href="https://en.sbu.ac.ir/">Shahid Beheshti University</a>(2023) </h5>
-
+<h3>      </h3>
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> Table of Contents</h2>
 <ul>
