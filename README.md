@@ -47,5 +47,5 @@
 <p align="justify">The controller results in the instructions to be implemented by constructing a definite collection of signals at each system clock cycle. Each of these output signals generates one micro-operation including register transfer. Thus, the sets of control signals are generated definite micro-operations that can be saved in the internal memory.</p>
 <p align="justify">Each bit that forms the microinstruction is linked to one control signal. When the bit is set, the control signal is active. When it is cleared the control signal turns inactive. These microinstructions in a sequence can be saved in the internal ’control’ memory:</p>
 <p align="center">
-  <img src="imgs/ROM_table.png" alt="ROM table">
+  <img src="imgs/ROM_table.png" alt="ROM table" width="702" heigth="491">
 </p>
