@@ -5,6 +5,11 @@
 <ol>
   <li><a href="#about-the-project">About The Project</a></li>
   <li><a href="#description">Description</a></li>
+  <ol>
+    <li><a href="#memory">Memory</li>
+    <li><a href="#data_path">Data Path</li>
+    <li><a href="#controller">Controller</li>
+  </ol>
 </ol>
 
 <!-- ABOUT THE PROJECT -->
@@ -27,12 +32,12 @@
   <img src="imgs/multicycle.png" alt="top module img">
 </p>
 <!-- MEMORY DESCRIPTION -->
-<h3>Memory:</h3>
+<h3 id="memory">Memory:</h3>
 <p>The memory unit is responsible for storing both instructions and data.</p>
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
 
 <!-- DATA PATH DESCRIPTION -->
-<h3>Data path:</h3>
+<h3 id="data_path">Data path:</h3>
 <p>Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
 <p></p>
 <p>Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
@@ -43,7 +48,7 @@
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10" >
 
 <!-- CONTROLLER DESCRIPTION -->
-<h3>Controller:</h3>
+<h3 id="controller">Controller:</h3>
 <p align="justify">The controller results in the instructions to be implemented by constructing a definite collection of signals at each system clock cycle. Each of these output signals generates one micro-operation including register transfer. Thus, the sets of control signals are generated definite micro-operations that can be saved in the internal memory.</p>
 <p align="justify">Each bit that forms the microinstruction is linked to one control signal. When the bit is set, the control signal is active. When it is cleared the control signal turns inactive. These microinstructions in a sequence can be saved in the internal ’control’ memory:</p>
 <p align="center">
