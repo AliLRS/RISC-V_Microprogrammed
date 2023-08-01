@@ -61,3 +61,13 @@
   <li><b>Adaptability is obtained at more cost.</li>
   <li><b>It is slower than a hardwired control unit.</li>
 </ul>
+<p align="justify">To execute an instruction, we require logic that produces the correct control signals by generating inputs to the ROM. This logic is called address select logic. It determines the next micro-operation based on the current micro-operation and the opcode of the instruction.</p>
+<!-- <img> -->
+<p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
+<ol>
+  <li>The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
+  <li>In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</li>
+  <li>In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</li>
+  <li>When the instruction is completed, the next state is the Fetch state.</li>
+  <li> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
+</ol>
