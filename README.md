@@ -49,3 +49,15 @@
 <p align="center">
   <img src="imgs/ROM_table.png" alt="ROM table" width="702px" heigth="491px">
 </p>
+<h4>Advantages of Microprogrammed Control Unit</h4>
+<ul>
+  <li><b>It can more systematic design of the control unit.</li>
+  <li><b>It is simpler to debug and change.</li>
+  <li><b>It is used to control functions implemented in software and not hardware.</li>
+  <li><b>It is more flexible.</li>
+</ul>
+<h4>Disadvantages of Microprogrammed Control Unit</h4>
+<ul>
+  <li><b>Adaptability is obtained at more cost.</li>
+  <li><b>It is slower than a hardwired control unit.</li>
+</ul>
