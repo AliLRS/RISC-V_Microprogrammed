@@ -2,15 +2,15 @@
 
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> Table of Contents</h2>
-<ol>
+<ul>
   <li><a href="#about-the-project">About The Project</a></li>
   <li><a href="#description">Description</a></li>
-  <ol>
+  <ul>
     <li><a href="#memory">Memory</li>
     <li><a href="#data_path">Data Path</li>
     <li><a href="#controller">Controller</li>
-  </ol>
-</ol>
+  </ul>
+</ul>
 
 <!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project">About The Project</h2>
