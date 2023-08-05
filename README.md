@@ -84,9 +84,9 @@
 <ol>
   <li align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
   <li><p align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
-  <center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></li>
+  <p><center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></p></li>
   <li><p align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
-  <center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></li>
+  <p><center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></p></li>
   <li align="justify">When the instruction is completed, the next state is the Fetch state.</li>
   <li align="justify"> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
 </ol>
@@ -109,7 +109,7 @@
 <p align="justify">First, we test the functionality of the Microprogrammed Control Unit. For this purpose, we write a test vector(TV) file containing input instruction sequences along with their expected outputs. Then, in the controller testbench, we compare the generated outputs with the expected outputs. If they do not match, we display the signal value, the expected value, and the corresponding test number. Finally, we present the total number of tests and the count of incorrect outputs.</p>
 <p align="justify">Output for controller testbench:</p>
 <p align="center">
-  <img src="imgs/test_controller.png" alt="controller testbench" width="702px" heigth="491px">
+  <img src="imgs/test_controller.png" alt="controller testbench" width="435px" heigth="125px">
 </p>
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
 
