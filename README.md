@@ -96,12 +96,12 @@
   <li><p align="justify">When the instruction is completed, the next state is the Fetch state.</p></li>
   <li><p align="justify">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB.</p></li>
 </ol>
-<p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct75 and op5 to determine ALUControl, as given in the table below:</p>
+<p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct7_5 and op_5 to determine ALUControl, as given in the table below:</p>
 <p align="center">
   <img src="imgs/ALUDecoder_table.png" alt="ALU decoder table img" width="589px" heigth="221px">
 </p>
 
-<p align="justify">A small Instruction Decoder combinationally produces the ImmSrc select signal based on the opcode using the table below:</p>
+<p align="justify">A small Instruction Decoder combinationally produces the ImmSrc select signal for extend unit, based on the opcode using the table below:</p>
 <p align="center">
   <img src="imgs/controlImmSrc_table.png" alt="ImmSrc table img" width="369px" heigth="151px">
 </p>
