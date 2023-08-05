@@ -1,8 +1,9 @@
 <h3>     </h3>
-<h1 align="center"> multi-cycle RISC-V microprogrammed processor </h1>
+<h1 align="center"> Multi-cycle RISC-V microprogrammed processor </h1>
 <h3 align="center"> Computer Architecture </h3>
 <h5 align="center"> Final Project - <a href="https://en.sbu.ac.ir/">Shahid Beheshti University</a>(2023) </h5>
 <h3>      </h3>
+
 <!-- TABLE OF CONTENTS -->
 <h2 id="table-of-contents"> Table of Contents</h2>
 <ul>
@@ -10,8 +11,13 @@
   <li><a href="#description">Description</a></li>
   <ul>
     <li><a href="#memory">Memory</li>
-    <li><a href="#data_path">Data Path</li>
+    <li><a href="#data-path">Data Path</li>
     <li><a href="#controller">Controller</li>
+  </ul>
+  <li><a href="#functionality-test">Functionality Test</a></li>
+  <ul>
+    <li><a href="#controller-test">Controller Test</li>
+    <li><a href="#processor-test">Processor Test</li>
   </ul>
 </ul>
 
@@ -40,7 +46,7 @@
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
 
 <!-- DATA PATH DESCRIPTION -->
-<h3 id="data_path">Data path:</h3>
+<h3 id="data-path">Data path:</h3>
 <p align="justify">Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
 <p></p>
 <p align="justify">Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
@@ -77,9 +83,9 @@
 <p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
 <ol>
   <li align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
-  <li align="justify"><p>In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
+  <li><p align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
   <center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></li>
-  <li align="justify"><p>In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
+  <li><p align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
   <center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></li>
   <li align="justify">When the instruction is completed, the next state is the Fetch state.</li>
   <li align="justify"> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
@@ -93,3 +99,19 @@
 <p align="center">
   <img src="imgs/controlImmSrc_table.png" alt="ImmSrc table img" width="369px" heigth="151px">
 </p>
+
+<!-- FUNCTIONALITY TEST -->
+<h2 id="functionality-test">Functionality Test</h2>
+<p>Testing and evaluation are imperative to guarantee the proper functionality of the processor. For this purpose, we first examine the controller's functionality and subsequently test the overall processor functionality.</p>
+
+<!-- CONTROLLER TEST -->
+<h3 id="controller-test">Controller Test</h3>
+<p align="justify">First, we test the functionality of the Microprogrammed Control Unit. For this purpose, we write a test vector(TV) file containing input instruction sequences along with their expected outputs. Then, in the controller testbench, we compare the generated outputs with the expected outputs. If they do not match, we display the signal value, the expected value, and the corresponding test number. Finally, we present the total number of tests and the count of incorrect outputs.</p>
+<p align="justify">Output for controller testbench:</p>
+<p align="center">
+  <img src="imgs/test_controller.png" alt="controller testbench" width="702px" heigth="491px">
+</p>
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
+
+<!-- PROCESSOR TEST -->
+<h3 id="processor-test">Processor Test</h3>
