@@ -26,7 +26,7 @@
   <li><b>beq</li>
   <li><b>jal</li>
 </ul>
-<p>The synthesis stages assume the execution of the design on the DE1-SoC board.</p>
+<p align="justify">The synthesis stages assume the execution of the design on the DE1-SoC board.</p>
 
 <!-- DESCRIPTION -->
 <h2 id="description">Description</h2>
@@ -41,13 +41,14 @@
 
 <!-- DATA PATH DESCRIPTION -->
 <h3 id="data_path">Data path:</h3>
-<p>Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
+<p align="justify">Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
 <p></p>
-<p>Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
+<p align="justify">Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
 <p align="center">
   <img src="imgs/dataPath.png" alt="data path module img" width="752px" height="252px">
 </p>
-<p>Each functional unit can be used more than once in an instruction, as long as it is used in different clock cycles.</p>
+<p align="justify">Each functional unit can be used more than once in an instruction, as long as it is used in different clock cycles.</p>
+<p align="justify">For more information about the multi-cycle data path, please refer to Section 7.4.1 of the book "Digital Design and Computer Architecture: RISC-V Edition".</p>
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10" >
 
 <!-- CONTROLLER DESCRIPTION -->
@@ -76,9 +77,9 @@
 <p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
 <ol>
   <li align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
-  <li align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.
+  <li align="justify"><p>In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
   <center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></li>
-  <li align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.
+  <li align="justify"><p>In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
   <center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></li>
   <li align="justify">When the instruction is completed, the next state is the Fetch state.</li>
   <li align="justify"> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
