@@ -36,6 +36,11 @@
 <!-- DESCRIPTION -->
 <h2 id="description">Description</h2>
 <p>The processor consists of three main units:</p>
+<ul>
+  <li><b>Memory</li>
+  <li><b>Data path</li>
+  <li><b>Controller</li>
+</ul>
 <p align="center">
   <img src="imgs/multicycle.png" alt="top module img" width="576px" height="448px">
 </p>
@@ -65,8 +70,7 @@
 
 <!-- CONTROLLER DESCRIPTION -->
 <h3 id="controller">Controller:</h3>
-<p align="justify">The controller results in the instructions to be implemented by constructing a definite collection of signals at each system clock cycle. Each of these output signals generates one micro-operation including register transfer. Thus, the sets of control signals are generated definite micro-operations that can be saved in the internal memory.</p>
-<p align="justify">Each bit that forms the microinstruction is linked to one control signal. When the bit is set, the control signal is active. When it is cleared the control signal turns inactive. These microinstructions in a sequence can be saved in the internal ’control’ memory:</p>
+<p align="justify">The controller, by receiving the necessary signals as inputs, provides control signals to various sections of the datapath. The difference between the controller in a microprogrammed control unit and a multi-cycle is that in microprogramming, the required control signals for each state are stored in a row of internal memory, such as a ROM. Upon receiving each line from the ROM (control word), we effectively have all the required control signals.</p>
 <p align="center">
   <img src="imgs/ROM_table.png" alt="ROM table" width="702px" heigth="491px">
 </p>
