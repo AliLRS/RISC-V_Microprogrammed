@@ -43,7 +43,7 @@
 <!-- MEMORY DESCRIPTION -->
 <h3 id="memory">Memory:</h3>
 <p align="justify">In the single-cycle design, we used separate instruction and data memories to read the instruction memory and read or write the data memory all in one cycle. Now, we use a combined memory for instructions and data. This is more realistic and feasible because we can read the instruction in one cycle, then read or write the data in another cycle.</p>
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px">
 
 <!-- DATA PATH DESCRIPTION -->
 <h3 id="data-path">Data path:</h3>
@@ -55,7 +55,7 @@
 </p>
 <p align="justify">Each functional unit can be used more than once in an instruction, as long as it is used in different clock cycles.</p>
 <p align="justify">For more information about the multi-cycle data path, please refer to Section 7.4.1 of the book "Digital Design and Computer Architecture: RISC-V Edition".</p>
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10" >
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10">
 
 <!-- CONTROLLER DESCRIPTION -->
 <h3 id="controller">Controller:</h3>
@@ -82,13 +82,13 @@
 </p>
 <p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
 <ol>
-  <li align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
+  <li><p align="center">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</p></li>
   <li><p align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
-  <p><center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></p></li>
+  <p align="center"><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1"></p></li>
   <li><p align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
-  <p><center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></p></li>
-  <li align="justify">When the instruction is completed, the next state is the Fetch state.</li>
-  <li align="justify"> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
+  <p align="center"><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2"></p></li>
+  <li><p align="center">When the instruction is completed, the next state is the Fetch state.</p></li>
+  <li><p align="center">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</p></li>
 </ol>
 <p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct75 and op5 to determine ALUControl, as given in the table below:</p>
 <p align="center">
@@ -111,7 +111,15 @@
 <p align="center">
   <img src="imgs/test_controller.png" alt="controller testbench" width="435px" heigth="125px">
 </p>
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px">
 
 <!-- PROCESSOR TEST -->
-<h3 id="processor-test">Processor Test</h3>
+<h3 id="processor-test">Processor Test:</h3>
+<p align="justify">Finally, to verify the overall functionality of the processor, we write code in assembly language that utilizes various instructions supported by the processor. Then, we write a specific value at a designated memory address, dependent on the correctness of the corresponding code. Then, we convert the desired code into machine code.
+Next, we store the respective machine code in a text file and initialize the memory with the values of the machine code instructions in memory module.
+Ultimately, we compare the expected value with the value present at the specified memory address after executing all the instructions. If they match, our test passes; otherwise, the test failes.</p>
+<p align="justify">Output for processor testbench:</p>
+<p align="center">
+  <img src="imgs/test_processor.png" alt="processor testbench" width="394px" heigth="121px">
+</p>
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px">
