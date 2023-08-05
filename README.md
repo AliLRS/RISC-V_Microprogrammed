@@ -38,7 +38,7 @@
 <h2 id="description">Description</h2>
 <p>The processor consists of three main units:</p>
 <p align="center">
-  <img src="imgs/multicycle.png" alt="top module img">
+  <img src="imgs/multicycle.png" alt="top module img" width="576px" height="448px">
 </p>
 <!-- MEMORY DESCRIPTION -->
 <h3 id="memory">Memory:</h3>
@@ -105,7 +105,7 @@
 <p>Testing and evaluation are imperative to guarantee the proper functionality of the processor. For this purpose, we first examine the controller's functionality and subsequently test the overall processor functionality.</p>
 
 <!-- CONTROLLER TEST -->
-<h3 id="controller-test">Controller Test</h3>
+<h3 id="controller-test">Controller Test:</h3>
 <p align="justify">First, we test the functionality of the Microprogrammed Control Unit. For this purpose, we write a test vector(TV) file containing input instruction sequences along with their expected outputs. Then, in the controller testbench, we compare the generated outputs with the expected outputs. If they do not match, we display the signal value, the expected value, and the corresponding test number. Finally, we present the total number of tests and the count of incorrect outputs.</p>
 <p align="justify">Output for controller testbench:</p>
 <p align="center">
