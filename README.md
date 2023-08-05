@@ -36,7 +36,7 @@
 </p>
 <!-- MEMORY DESCRIPTION -->
 <h3 id="memory">Memory:</h3>
-<p>The memory unit is responsible for storing both instructions and data.</p>
+<p align="justify">In the single-cycle design, we used separate instruction and data memories to read the instruction memory and read or write the data memory all in one cycle. Now, we use a combined memory for instructions and data. This is more realistic and feasible because we can read the instruction in one cycle, then read or write the data in another cycle.</p>
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px" >
 
 <!-- DATA PATH DESCRIPTION -->
@@ -69,17 +69,19 @@
   <li><b>Adaptability is obtained at more cost.</li>
   <li><b>It is slower than a hardwired control unit.</li>
 </ul>
-<p align="justify">To execute an instruction, we require logic that produces the correct control signals by generating inputs to the ROM. This logic is called address select logic. It determines the next micro-operation based on the current micro-operation and the opcode of the instruction.</p>
+<p align="justify">To execute an instruction, we require logic that produces the correct control signals by generating inputs to the ROM. This logic is called address select logic. It determines the next micro-operation based on the current micro-operation and the instruction's opcode.</p>
 <p align="center">
     <img src="imgs/addressSelectLogic.png" alt="Address Select Logic img" width="554px" heigth="347px">
 </p>
 <p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
 <ol>
-  <li>The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
-  <li>In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</li>
-  <li>In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</li>
-  <li>When the instruction is completed, the next state is the Fetch state.</li>
-  <li> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
+  <li align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</li>
+  <li align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.
+  <center><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1" ></center></li>
+  <li align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.
+  <center><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2" ></center></li>
+  <li align="justify">When the instruction is completed, the next state is the Fetch state.</li>
+  <li align="justify"> In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</li>
 </ol>
 <p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct75 and op5 to determine ALUControl, as given in the table below:</p>
 <p align="center">
