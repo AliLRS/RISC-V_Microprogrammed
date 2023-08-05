@@ -82,13 +82,13 @@
 </p>
 <p align="justify">There is a multiplexer that selects which one of its inputs will be the address for the next micro-operation. Based on the executing instruction and the current execution stage, the following scenarios are considered:</p>
 <ol>
-  <li><p align="center">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</p></li>
+  <li><p align="justify">The micro-operation that comes after the current micro-operation in the ROM should be executed precisely. This is implemented using an Adder.</p></li>
   <li><p align="justify">In the decode state, the next state is determined based on the opcode. this is implemented using the Dispatch ROM 1.</p>
   <p align="center"><img src="imgs/dispatch_ROM_1.png" alt="Dispatch ROM 1"></p></li>
   <li><p align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
   <p align="center"><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2"></p></li>
-  <li><p align="center">When the instruction is completed, the next state is the Fetch state.</p></li>
-  <li><p align="center">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</p></li>
+  <li><p align="justify">When the instruction is completed, the next state is the Fetch state.</p></li>
+  <li><p align="justify">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</p></li>
 </ol>
 <p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct75 and op5 to determine ALUControl, as given in the table below:</p>
 <p align="center">
@@ -122,4 +122,3 @@ Ultimately, we compare the expected value with the value present at the specifie
 <p align="center">
   <img src="imgs/test_processor.png" alt="processor testbench" width="394px" heigth="121px">
 </p>
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="a line" height="10px">
