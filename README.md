@@ -32,7 +32,6 @@
   <li><b>beq</li>
   <li><b>jal</li>
 </ul>
-<p align="justify">The synthesis stages assume the execution of the design on the DE1-SoC board.</p>
 
 <!-- DESCRIPTION -->
 <h2 id="description">Description</h2>
@@ -48,7 +47,14 @@
 <!-- DATA PATH DESCRIPTION -->
 <h3 id="data-path">Data path:</h3>
 <p align="justify">Multi-cycle data paths break up instructions into separate steps. The steps based on the executing instruction, are as follows:</p>
-<p></p>
+<ul>
+  <li><p align="justify">R-type instructions: Fetch, Decode, ExecuteR, ALUWB.</p></li>
+  <li><p align="justify">I-type instructions: Fetch, Decode, ExecuteI. ALUWB.</p></li>
+  <li><p align="justify">lw instruction: Fetch, Decode, MemAdr, MemRead, MemWB.</p></li>
+  <li><p align="justify">sw instruction: Fetch, Decode, MemAdr, MemWrite.</p></li>
+  <li><p align="justify">beq instruction: Fetch, Decode, BEQ.</p></li>
+  <li><p align="justify">jal instruction: Fetch, Decode, JAL, ALUWB.</p></li>
+</ul>
 <p align="justify">Therefore the data path consists of a Register File, ALU, Extend unit, several multiplexers for picking up the input of other units, and 5 Nonarchitectural registers to hold the results of each step:</p>
 <p align="center">
   <img src="imgs/dataPath.png" alt="data path module img" width="752px" height="252px">
@@ -88,7 +94,7 @@
   <li><p align="justify">In the MemAdr state, the next state is determined based on the opcode, and this is implemented using the Dispatch ROM 2.</p>
   <p align="center"><img src="imgs/dispatch_ROM_2.png" alt="Dispatch ROM 2"></p></li>
   <li><p align="justify">When the instruction is completed, the next state is the Fetch state.</p></li>
-  <li><p align="justify">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB state.</p></li>
+  <li><p align="justify">In the ExecuteR, ExecuteI, and JAL states, the next state is the ALUWB.</p></li>
 </ol>
 <p align="justify">The controller module also consists of an ALU Decoder and Instr Decoder. The ALU Decoder produces ALUControl based on ALUOp and funct3. In the case of the sub and add instructions, the ALU Decoder also uses funct75 and op5 to determine ALUControl, as given in the table below:</p>
 <p align="center">
